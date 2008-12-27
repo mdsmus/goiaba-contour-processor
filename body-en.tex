@@ -15,6 +15,74 @@
 \section{Goiaba}
 \label{sec:goiaba}
 
+\goiaba{} is a software developed in Common Lisp \cite{graham94:lisp},
+compiled with Steel Bank Common Lisp (SBCL) \cite{team07:sbcl}, and
+bottom up metodology.
+
+Bottom up methodology is related to the development direction, from
+simple subsystems to the entire program. This methodology is suitable
+to programs that progressively has complexity increased. Programs like
+\TeX{}\footnote{\url{www.tug.org}} and X
+Windows\footnote{\url{www.x.org}} are developed in this way. This
+metodology has good advantages as the possibility to make smaller and
+smart programs, to reuse subsystems functions in others subsystems,
+and to simplify and clear programmer ideas \cite{graham94:lisp}.
+
+In \goiaba{}, contours are symbolic represented in two ways: as simple
+contours and duration-included contours. Simple contours represents
+only contour element values: \code{(5 9 6)}. Duration-included
+contours represents also the time when the value occur: \code{((0 5)(1
+  9)(2 6))}. Despite \goiaba{} provides a codification that includes
+time influence in contour, we don't consider time. It's a future work
+(see section \ref{sec:future-work}).
+
+\goiaba{} has \texttt{point}, \texttt{simple-contour} and
+\texttt{duration-contour} classes. The \texttt{point} class defines
+pitches in time as (x, y), cartesian elements, x as time and y as
+pitch. The \texttt{duration-contour} class defines a contour as a
+points list, like ((x, y) (z, w)), and the \texttt{simple-contour}
+class defines contours only as pitches, like (y w).
+
+Some read macros were defined to simplify instances making easier. For
+instance, to make \texttt{point} instance, it's possible to do
+\code{(make-instance 'ponto :x 0 :y 3)} or just \code{\#p(0 3)}, with
+read macro. It's possible also to create \texttt{duration-contour}
+with two points in \code{\#d(\#p(0 3) \#p(1 4))}.
+
+Contour operations are implemented in methods, taking Common Lisp
+object systems (CLOS) multiple order. So a method like \texttt{rotate}
+behaves in a different way depending on the first parameter. In
+following code there are two methods, the first to
+\code{duration-contour}, and the second to \code{simple-contour}.
+
+%% FIXME: insert code
+
+
+%% FIXME: update operations
+\goiaba{} has many operations to process contours, like inversion,
+retrogradation and rotation, contour reduction \cite{adams76:melodic},
+contour class, contour adjacency series, contour adjacency series
+vector, contour interval, contour interval array, contour class vector
+I and II \cite{friedmann85:methodology}, and comparison matrix
+\cite{morris93:directions}.
+
+Finally \goiaba{} uses Cl-pdf
+library\footnote{\url{www.cliki.net/CL-PDF}} to plot contours,
+allowing easy contour operations visualization. For instance, the
+follow code generates a graph with original contour, retrogradation,
+inversion, and rotation (fig. \ref{fig:operacoes}). In this example we
+define \code{Z} contour, output file, graphic dimensions, operations,
+and colors to be output in graphic.
+
+%% FIXME: insert code
+
+%% FIXME: insert figure
+\begin{figure}
+  \centering
+  \caption{Z(0 5 3 4 1 3) contour operations}
+  \label{fig:operacoes}
+\end{figure}
+
 \section{Future work}
 \label{sec:future-work}
 
