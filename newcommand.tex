@@ -1,0 +1,52 @@
+% usar para termos estrangeiros
+\newcommand{\eng}[1]{\textit{#1}}
+% \newcommand{\eg}[1]{\textit{\gls{#1}}}
+\newcommand{\eg}[1]{\textit{#1}}
+
+\newcommand{\opus}[1]{\textit{#1}}
+\newcommand{\tr}[1]{\textit{#1}}
+
+\newcommand{\contorno}[1]{$\langle #1 \rangle$}
+\newcommand{\contpr}{P(5 3 4 1 2 0)}
+\newcommand{\obra}{\textit{Em torno da romã}}
+\newcommand{\goiaba}{\opus{Goiaba}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+% usar para citação integral indentada com tradução
+\newcommand{\citacaolonga}[4]{
+  \begin{quote}
+    \normalsize
+%    \selectlanguage{english}
+    {#1}\footnote{
+      \selectlanguage{brazil}
+      ``{#2}''.
+    }.
+    \selectlanguage{brazil}
+    \cite[#3]{#4}.
+  \end{quote}
+}
+
+\newcommand{\citacaoinline}[4]{
+  ``#1''\footnote{
+    \selectlanguage{brazil}
+    ``{#2}''.}
+  \selectlanguage{brazil}
+  \cite[#3]{#4}.
+}
+
+\newcounter{notecounter}
+
+\newcommand{\note}[1]{
+  \addtocounter{notecounter}{1}
+  \textcolor{red}{[note \arabic{notecounter}: #1]}
+}
+
+\newcommand{\cinzaa}{
+  \multicolumn{1}{>{\columncolor[gray]{.5}}c}{}
+}
+
+\newcommand{\cinzab}{
+  \multicolumn{1}{>{\columncolor[gray]{.7}}c}{}
+}
+
+\newcommand{\music}[1]{\textit{\textbf{#1}}}
