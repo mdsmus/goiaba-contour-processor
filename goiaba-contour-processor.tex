@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{icmc,amsmath}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{color}
+%\usepackage[htt]{hyphenat}
+\usepackage{times}
+%\usepackage{babelbib}
+
+\hyphenation{e-du-ca-ci-\'on}
+
+\title{Goiaba: A music contour processor software}
+
+\oneauthor
+  {Marcos Sampaio, Pedro Kröger}
+  {Genos---Computer Music Research Group\\ School of Music
+   \\ Federal University of Bahia, Brazil \\
+  \url{{mdsmus,pedro.kroger}@gmail.com}}
+
+\newcounter{notacounter}
+
+\newcommand{\note}[1]{
+  \addtocounter{notacounter}{1}
+  \textcolor{red}{[nota \arabic{notacounter}: #1]}
+}
+
+
+\begin{document}
+\graphicspath{{figs/}{data/}}
+\maketitle
+
+\begin{abstract}
+  \input{abstract}
+\end{abstract}
+
+\input{body-en}
+
+\bibliographystyle{plain}
+\input{bibliography}
+
+\end{document}
+
