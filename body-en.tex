@@ -21,20 +21,20 @@ bottom up metodology.
 
 Bottom up methodology is related to the development direction, from
 simple subsystems to the entire program. This methodology is suitable
-to programs that progressively has complexity increased. Programs like
-\TeX{}\footnote{\url{www.tug.org}} and X
+to programs that progressively have complexity increased. Programs
+like \TeX{}\footnote{\url{www.tug.org}} and X
 Windows\footnote{\url{www.x.org}} are developed in this way. This
 metodology has good advantages as the possibility to make smaller and
-smart programs, to reuse subsystems functions in others subsystems,
+smarter programs, to reuse subsystems functions in others subsystems,
 and to simplify and clear programmer ideas \cite{graham94:lisp}.
 
 In \goiaba{}, contours are symbolic represented in two ways: as simple
 contours and duration-included contours. Simple contours represents
 only contour element values: \code{(5 9 6)}. Duration-included
-contours represents also the time when the value occur: \code{((0 5)(1
-  9)(2 6))}. Despite \goiaba{} provides a codification that includes
-time influence in contour, we don't consider time. It's a future work
-(see section \ref{sec:future-work}).
+contours represents also the time when the element occur: \code{((0
+  5)(1 9)(2 6))}. Despite \goiaba{} provides a codification that
+includes time influence in contour, we don't consider time. It's a
+future work (see section \ref{sec:future-work}).
 
 \goiaba{} has \texttt{point}, \texttt{simple-contour} and
 \texttt{duration-contour} classes. The \texttt{point} class defines
