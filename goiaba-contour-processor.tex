@@ -1,40 +1,75 @@
-\documentclass{article}
-\usepackage{icmc,amsmath}
-\usepackage{graphicx}
-\usepackage{url}
-\usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[english]{babel}
-\usepackage{color}
-%\usepackage[htt]{hyphenat}
-\usepackage{times}
-%\usepackage{babelbib}
+\documentclass[twoside,10pt]{article}
+\usepackage{icmc2009,amssymb,amsmath} 
+%\setcounter{page}{1}
+
+\usepackage{mathptmx} 
+
+\def\papertitle{Goiaba: A music contour processor software}
+%\def\papertitle{}	%-- should be empty for the submission anyway!
+
+\def\paperauthorA{} 
+\affiliation{}{}
+
+
+%---- uncomment 1 to 4 lines, for 1 to 4 authors
+\def\paperauthorA{Marcos Sampaio}
+\def\paperauthorB{Pedro Kröger}
+%\def\paperauthorC{Third Author}
+%\def\paperauthorD{Fourth Author}
+
+%%---- set correspnding affiliation data for...
+%%-- 1 author
+%\affiliation{\paperauthorA}
+%  {School\\ Department, City, Country \\ {\tt \href{mailto:email@domain.icmc}{email@domain.icmc}}}
+
+%%-- 2 authors with same affiliation
+\affiliation{\paperauthorA, \paperauthorB}
+ {Genos---Computer Music Research Group\\ School of Music \\ Federal
+   University of Bahia, Brazil \\ {\tt
+     \href{mailto:mdsmus@gmail.com}{mdsmus@gmail.com} 
+     \href{mailto:pedro.kroger@gmail.com}{pedro.kroger@gmail.com}
+ }}
+
+%-- 2 authors with different affiliations
+%\twoaffiliations{\paperauthorA}{School\\ Department}
+%  {\paperauthorB}{Company\\ Address}
+
+%%-- 3 authors with different affiliations
+%\threeaffiliations{\paperauthorA}{School A\\ Department X}
+%  {\paperauthorB}{Company\\ Address}
+%  {\paperauthorC}{School B\\ Department Y}
+
+%%-- 4 authors with different affiliations
+%\fouraffiliations{\paperauthorA}{School A\\ Department X}
+%  {\paperauthorB}{Company\\ Address}
+%  {\paperauthorC}{School B\\ Department Y}
+%  {\paperauthorD}{School C\\ Department Z}
+
+%---- the hyperref package must be last to properly work
+\usepackage[pdftex,
+       pdftitle={\papertitle},
+	pdfauthor={\paperauthorA},
+	colorlinks=false,bookmarksnumbered,pdfstartview=XYZ]{hyperref}
+%\pdfcompresslevel=9
+\usepackage[pdftex]{graphicx}	% for compatible graphics with hyperref
+\usepackage[figure,table]{hypcap}	% corrects the hyper-anchor of figures/tables
 \usepackage{subfig}
 
-\hyphenation{e-du-ca-ci-\'on}
-
-\title{Goiaba: A music contour processor software}
-
-\oneauthor
-  {Marcos Sampaio, Pedro Kröger}
-  {Genos---Computer Music Research Group\\ School of Music
-   \\ Federal University of Bahia, Brazil \\
-  \url{{mdsmus,pedro.kroger}@gmail.com}}
-
-\newcounter{notacounter}
 \input{newcommand}
 
+\title{\papertitle}
+
 \begin{document}
+
 \maketitle
 
 \begin{abstract}
-  \input{abstract}
+\input{abstract}
 \end{abstract}
 
 \input{body-en}
 
-\bibliographystyle{plain}
+\bibliographystyle{IEEEtranS}
 \input{bibliography}
 
 \end{document}
-
