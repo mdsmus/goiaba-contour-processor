@@ -2,7 +2,8 @@
 *.bbl
 *.blg
 *.log
-*.pdf
 *.ps
 *.eps
 *.out
+data/*.pdf
+lily/*.pdf
