@@ -62,7 +62,7 @@ reason we are researching contours usage in composition. The first
 author of this paper, in his master's\footnote{The reference was
   omitted to keep anonymity. It will be included in final version.},
 composed two experimental short pieces and an eleven minutes quintet,
-both based in contour theories operations.  
+both based in contour theories operations.
 
 \goiaba{} was very important in this quintet compositional process
 because the entire piece was composed based on P(5 3 4 1 2 0) contour,
@@ -116,24 +116,24 @@ contours represents also the time when the element occur: \code{((0
 includes time influence in contour, we don't consider time. It's a
 future work (see section \ref{sec:future-work}).
 
-\goiaba{} has \texttt{point}, \texttt{simple-contour} and
-\texttt{duration-contour} classes. The \texttt{point} class defines
+\goiaba{} has \texttt{ponto}, \texttt{contorno-simples} and
+\texttt{contorno-duracao} classes. The \texttt{ponto} class defines
 pitches in time as (x, y), cartesian elements, x as time and y as
-pitch. The \texttt{duration-contour} class defines a contour as a
-points list, like ((x, y) (z, w)), and the \texttt{simple-contour}
+pitch. The \texttt{contorno-duracao} class defines a contour as a
+points list, like ((x, y) (z, w)), and the \texttt{contorno-simples}
 class defines contours only as pitches, like (y w).
 
 Some read macros were defined to simplify instances making easier. For
-instance, to make \texttt{point} instance, it's possible to do
+instance, to make \texttt{ponto} instance, it's possible to do
 \code{(make-instance 'ponto :x 0 :y 3)} or just \code{\#p(0 3)}, with
-read macro. It's possible also to create \texttt{duration-contour}
+read macro. It's possible also to create \texttt{contorno-duracao}
 with two points in \code{\#d(\#p(0 3) \#p(1 4))}.
 
 Contour operations are implemented in methods, taking Common Lisp
 object systems (CLOS) multiple order. So a method like \texttt{rotate}
 behaves in a different way depending on the first parameter. In
 following code there are two methods, the first to
-\code{duration-contour}, and the second to \code{simple-contour}.
+\code{contorno-duracao}, and the second to \code{contorno-simples}.
 
 %% FIXME: insert code
 
