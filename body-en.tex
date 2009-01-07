@@ -183,8 +183,23 @@ behaves in a different way depending on the first parameter. In
 following code there are two methods, the first to
 \code{contorno-duracao}, and the second to \code{contorno-simples}.
 
-%% FIXME: insert code
+%% FIXME: traduzir termos do goiaba
+\begin{figure*}
+\begin{verbatim}
+(defmethod rotacionar ((objeto contorno-duracao) &optional (fator 1))
+  (if (> fator (length (pontos objeto)))
+      (let ((x (mapcar #'ponto-x (pontos objeto)))
+            (y (mapcar #'ponto-y (pontos objeto))))
+        (make-contorno-duracao (mapcar #'make-ponto x
+           (append (subseq y fator) (subseq y 0 fator)))))))
 
+(defmethod rotacionar ((objeto contorno-simples) &optional (fator 1))
+  (make-contorno-simples (append (subseq (pontos objeto) fator)
+                                 (subseq (pontos objeto) 0 fator))))
+\end{verbatim}
+  \caption{Methods}
+  \label{fig:code-methods}
+\end{figure*}
 
 %% FIXME: update operations
 \goiaba{} has many operations to process contours, like inversion,
@@ -202,14 +217,21 @@ inversion, and rotation (fig. \ref{fig:operacoes}). In this example we
 define \code{Z} contour, output file, graphic dimensions, operations,
 and colors to be output in graphic.
 
-%% FIXME: insert code
-%% escolher operações para mostrar
+%% FIXME: usar linhas b/w
+\begin{verbatim}
+(let ((Z #s(0 5 3 4 1 3)))
+  (plot-page "contornos.pdf"
+    (plot-contorno-full 50 500
+      Z "original Z" :red
+      (retrogradar Z) "retrógrado" :blue
+      (inverter Z) "inversão" :orange
+      (rotacionar Z 1) "rotação" :green)))
+\end{verbatim}
 
-%% FIXME: insert figure
 \begin{figure}
   \centering
-%   \includegraphics[scale=.44]{contornos}
-  \caption{Z(0 5 3 4 1 3) contour operations}
+  \includegraphics[scale=.44]{contornos}
+  \caption{\goiaba{} output: Z(0 5 3 4 1 3) contour operations}
   \label{fig:operacoes}
 \end{figure}
 
