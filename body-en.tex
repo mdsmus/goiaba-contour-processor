@@ -71,90 +71,13 @@ automated graphical plotting, and conversion from score to contours
 and vice-versa. For these reasons we are developing \goiaba{}, a
 contour processor software (see section \ref{sec:goiaba}).
 
-\section{Contour applications in composition}
-\label{sec:cont-appl-comp}
-
-Systematic studies about the usage of contour operations and
-combinations in musical composition are scarce, despite the possible
-coherence that contours can give and the operations provided by
-contour theories. For this reason we are researching contours usage in
-composition. The first author of this paper, in his
-master's\footnote{The reference was omitted to keep anonymity. It will
-  be included in final version.}, composed a woodwind quintet based on
-contour theories operations.
-
-This quintet was composed entirely using \goiaba{} to simplify
-operations and plotting. The piece is based on combinations of contour
-operations associated to parameters such as pitch, tempo, density and
-texture. This quintet is based on P(5 3 4 1 2 0) contour
-(fig. \ref{fig:c-534120}, its subsets and operations---retrogradation,
-inversion, rotation, interpollation.
-
-\begin{figure}
-  \centering
-  \includegraphics{c-534120}
-  \caption{P(5 3 4 1 2 0) contour}
-  \label{fig:c-534120}
-\end{figure}
-
-\goiaba{} was essential to compose a \eng{fugato}, in the quintet,
-because each piece of subject and countersubject were based on
-different combinations of rotation and retrogradation operations.  The
-subject has original contour P(5 3 4 1 2 0) and factor 3 rotation
-(fig. \ref{fig:sujeito-fugato}). Figure
-\ref{fig:output-sujeito-fugato} has the contour software output for
-graphical representations of these subject operations. Contoursubject
-has original contour retrogradation repeated three times with
-different rotation factors---5, 4 and 3
-(fig. \ref{fig:contra-sujeito-fugato}). In the same way software
-output for these operations are in figure
-\ref{fig:output-contra-sujeito-fugato}.
-
-\begin{figure*}
-  \centering
-  \subfloat[Subject]{
-    \includegraphics[scale=2.8]{sujeito-fugato}
-    \label{fig:sujeito-fugato}
-  }
-
-  \subfloat[Countersubject]{
-    \includegraphics[scale=2.8]{contra-sujeito-fugato}
-    \label{fig:contra-sujeito-fugato}
-  }
-  \caption{Structural elements of \eng{fugato}}
-  \label{fig:elementos-fugato}
-\end{figure*}
-
-\begin{figure*}
-  \centering
-  \subfloat[Subject]{
-    \includegraphics[scale=.44]{output-subject}
-    \label{fig:output-sujeito-fugato}
-  }
-  \subfloat[Countersubject]{
-    \includegraphics[scale=.44]{output-countersubject}
-    \label{fig:output-contra-sujeito-fugato}
-  }
-  \caption{Software output for \eng{fugato} contour operations}
-  \label{fig:output-fugato}
-\end{figure*}
-
-\section{Goiaba}
+\section{The contour processing program Goiaba}
 \label{sec:goiaba}
 
 \goiaba{}\footnote{Additional information and link were also omitted
   to keep anonymity.} is a software developed in Common Lisp
 \cite{graham94:lisp}, compiled with Steel Bank Common Lisp (SBCL)
 \cite{team07:sbcl}, and bottom up metodology.
-
-Bottom up methodology is related to the development direction, from
-simple subsystems to the entire program. This methodology is suitable
-to programs that progressively have complexity increased. Programs
-like \TeX{}\footnote{\url{www.tug.org}} and X
-Windows\footnote{\url{www.x.org}} are developed in this way. This
-metodology has good advantages as the possibility to make smaller and
-smarter programs, to reuse subsystems functions in others subsystems,
-and to simplify and clear programmer ideas \cite{graham94:lisp}.
 
 In \goiaba{}, contours are symbolic represented in two ways: as simple
 contours and duration-included contours. Simple contours represents
@@ -234,6 +157,74 @@ and colors to be output in graphic.
   \caption{\goiaba{} output: Z(0 5 3 4 1 3) contour operations}
   \label{fig:operacoes}
 \end{figure}
+
+\section{The application of Contour in composition}
+\label{sec:cont-appl-comp}
+
+Systematic studies about the usage of contour operations and
+combinations in musical composition are scarce, despite the possible
+coherence that contours can give and the operations provided by
+contour theories. For this reason we are researching contours usage in
+composition. The first author of this paper, in his
+master's\footnote{The reference was omitted to keep anonymity. It will
+  be included in final version.}, composed a woodwind quintet based on
+contour theories operations.
+
+This quintet was composed entirely using \goiaba{} to simplify
+operations and plotting. The piece is based on combinations of contour
+operations associated to parameters such as pitch, tempo, density and
+texture. This quintet is based on P(5 3 4 1 2 0) contour
+(fig. \ref{fig:c-534120}, its subsets and operations---retrogradation,
+inversion, rotation, interpollation.
+
+\begin{figure}
+  \centering
+  \includegraphics{c-534120}
+  \caption{P(5 3 4 1 2 0) contour}
+  \label{fig:c-534120}
+\end{figure}
+
+\goiaba{} was essential to compose a \eng{fugato}, in the quintet,
+because each piece of subject and countersubject were based on
+different combinations of rotation and retrogradation operations.  The
+subject has original contour P(5 3 4 1 2 0) and factor 3 rotation
+(fig. \ref{fig:sujeito-fugato}). Figure
+\ref{fig:output-sujeito-fugato} has the contour software output for
+graphical representations of these subject operations. Contoursubject
+has original contour retrogradation repeated three times with
+different rotation factors---5, 4 and 3
+(fig. \ref{fig:contra-sujeito-fugato}). In the same way software
+output for these operations are in figure
+\ref{fig:output-contra-sujeito-fugato}.
+
+\begin{figure*}
+  \centering
+  \subfloat[Subject]{
+    \includegraphics[scale=2.8]{sujeito-fugato}
+    \label{fig:sujeito-fugato}
+  }
+
+  \subfloat[Countersubject]{
+    \includegraphics[scale=2.8]{contra-sujeito-fugato}
+    \label{fig:contra-sujeito-fugato}
+  }
+  \caption{Structural elements of \eng{fugato}}
+  \label{fig:elementos-fugato}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \subfloat[Subject]{
+    \includegraphics[scale=.44]{output-subject}
+    \label{fig:output-sujeito-fugato}
+  }
+  \subfloat[Countersubject]{
+    \includegraphics[scale=.44]{output-countersubject}
+    \label{fig:output-contra-sujeito-fugato}
+  }
+  \caption{Software output for \eng{fugato} contour operations}
+  \label{fig:output-fugato}
+\end{figure*}
 
 \section{Future work}
 \label{sec:future-work}
