@@ -75,15 +75,15 @@ contour processor software (see section \ref{sec:goiaba}).
 \label{sec:goiaba}
 
 \goiaba{}\footnote{Additional information and link were also omitted
-  to keep anonymity.} is a software developed in Common Lisp
-\cite{graham94:lisp}, compiled with Steel Bank Common Lisp (SBCL)
-\cite{team07:sbcl}, and bottom up metodology.
+  to keep anonymity.} is developed in Common Lisp
+\cite{graham94:lisp}, with the Steel Bank Common Lisp (SBCL) compiler
+\cite{team07:sbcl}.
 
-In \goiaba{}, contours are symbolic represented in two ways: as simple
-contours and duration-included contours. Simple contours represents
-only contour element values: \code{(5 9 6)}. Duration-included
-contours represents also the time when the element occur: \code{((0
-  5)(1 9)(2 6))}. Despite \goiaba{} provides a codification that
+In \goiaba{}, contours are represented symbolicaly in two ways: as
+simple contours and contours with durations. Simple contours
+represents only contour element values: \code{(5 9 6)}. Contours with
+duration represents also the time when the element occur: \code{((0
+  5)(1 9)(2 6))}. Although \goiaba{} provides a codification that
 includes time influence in contour, we don't consider time. It's a
 future work (see section \ref{sec:future-work}).
 
