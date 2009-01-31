@@ -74,81 +74,51 @@ contour processor software (see section \ref{sec:goiaba}).
 \section{The contour processing program Goiaba}
 \label{sec:goiaba}
 
-\goiaba{}\footnote{Additional information and link were also omitted
-  to keep anonymity.} is developed in Common Lisp
-\cite{graham94:lisp}, with the Steel Bank Common Lisp (SBCL) compiler
-\cite{team07:sbcl}.
+\goiaba{} is a program writen in Common Lisp
+\cite{graham94:lisp,team07:sbcl} to process and plot contours
+developed by the authors of this paper. It has many contour-related
+operations, like inversion, retrogradation, rotation, contour
+reduction \cite{adams76:melodic}, contour class, contour adjacency
+series, contour adjacency series vector, contour interval, contour
+interval array, contour class vector I and II
+\cite{friedmann85:methodology}, and comparison matrix
+\cite{morris93:directions}. Currently, \goiaba{} accepts and shows
+contours in a numeric format, but it can also plot contours in a pdf
+file.
 
-In \goiaba{}, contours are represented symbolicaly in two ways: as
-simple contours and contours with durations. Simple contours
-represents only contour element values: \code{(5 9 6)}. Contours with
-duration represents also the time when the element occur: \code{((0
-  5)(1 9)(2 6))}. Although \goiaba{} provides a codification that
-includes time influence in contour, we don't consider time. It's a
-future work (see section \ref{sec:future-work}).
+\goiaba{} has two representations for contours; simple contours
+represents only the values of the contour elements, and contour with
+durations is basicaly a colection of cartesian points. For instance,
+the contour in figure \ref{fig:c-3120} would be represented as a
+simple contour in \goiaba{} as \code{\#s(3 1 2 0)} and as a contour
+with duration as \code{\#d(\#p(0 3)\#p(1 1)\#p(2 2)\#p(3 0))}. The
+notation \code{\#s(\ldots)} and \code{\#d(\ldots)} indicate a simple
+contour and a contour with duration, respectively. The notation
+\code{\#p(x y)} indicates a point with two values. So, from the
+example we can see that \goiaba{} really represents a contour with
+duration as a collection of points. \#s, \#d, and \#p are user-defined
+reader macros that expand into code to instantiate objects of types
+simple-contour, contour-with-duration, and point, respectively. For
+instance, \code{\#(0 1)} is expanded to \code{(make-instance 'point :x
+  0 :y 1)}. Finally, \goiaba{} has a few constructor functions besides
+the reader macros to help the criation of contour objects. These
+functions, \texttt{make-point-list},
+\texttt{make-sim\-ple-contour-list}, and
+\texttt{make-contour-with-dura\-tion-list}, map a list to the
+correspondent object.
 
-\goiaba{} has \texttt{ponto}, \texttt{contorno-simples} and
-\texttt{contorno-duracao} classes. The \texttt{ponto} class defines
-pitches in time as (x, y), cartesian elements, x as time and y as
-pitch. The \texttt{contorno-duracao} class defines a contour as a
-points list, like ((x, y) (z, w)), and the \texttt{contorno-simples}
-class defines contours only as pitches, like (y w).
+\goiaba{} uses the Cl-pdf library\footnote{\url{www.cliki.net/CL-PDF}}
+to plot contours, allowing easy visualization of contour operations.
+For instance, the following code generates a graph with the original
+contour Z, \code{\#s(0 5 3 4 1 3)}, and its retrogradation, inversion,
+and rotation. The result can be seen in figure \ref{fig:operacoes}.
 
-Some read macros were defined to simplify instances making easier. For
-instance, to make \texttt{ponto} instance, it's possible to do
-\code{(make-instance 'ponto :x 0 :y 3)} or just \code{\#p(0 3)}, with
-read macro. It's possible also to create \texttt{contorno-duracao}
-with two points in \code{\#d(\#p(0 3) \#p(1 4))}.
-
-Contour operations are implemented in methods, taking Common Lisp
-object systems (CLOS) multiple order. So a method like \texttt{rotate}
-behaves in a different way depending on the first parameter. In code
-in figure \ref{fig:code-methods} there are two methods, the first to
-\code{contorno-duracao}, and the second to \code{contorno-simples}.
-
-%% FIXME: traduzir termos do goiaba
-\begin{figure*}
 \begin{verbatim}
-(defmethod rotacionar ((objeto contorno-duracao) &optional (fator 1))
-  (if (> fator (length (pontos objeto)))
-      (let ((x (mapcar #'ponto-x (pontos objeto)))
-            (y (mapcar #'ponto-y (pontos objeto))))
-        (make-contorno-duracao (mapcar #'make-ponto x
-           (append (subseq y fator) (subseq y 0 fator)))))))
-
-(defmethod rotacionar ((objeto contorno-simples) &optional (fator 1))
-  (make-contorno-simples (append (subseq (pontos objeto) fator)
-                                 (subseq (pontos objeto) 0 fator))))
-\end{verbatim}
-  \caption{Methods}
-  \label{fig:code-methods}
-\end{figure*}
-
-%% FIXME: update operations
-\goiaba{} has many operations to process contours, like inversion,
-retrogradation and rotation, contour reduction \cite{adams76:melodic},
-contour class, contour adjacency series, contour adjacency series
-vector, contour interval, contour interval array, contour class vector
-I and II \cite{friedmann85:methodology}, and comparison matrix
-\cite{morris93:directions}.
-
-Finally \goiaba{} uses Cl-pdf
-library\footnote{\url{www.cliki.net/CL-PDF}} to plot contours,
-allowing easy contour operations visualization. For instance, the
-follow code generates a graph with original contour, retrogradation,
-inversion, and rotation (fig. \ref{fig:operacoes}). In this example we
-define \code{Z} contour, output file, graphic dimensions, operations,
-and colors to be output in graphic.
-
-%% FIXME: usar linhas b/w
-\begin{verbatim}
-(let ((Z #s(0 5 3 4 1 3)))
-  (plot-page "contornos.pdf"
-    (plot-contorno-full 50 500
+(plot "contour.pdf"
       Z "original Z" :red
-      (retrogradar Z) "retrógrado" :blue
-      (inverter Z) "inversão" :orange
-      (rotacionar Z 1) "rotação" :green)))
+      (retrograde Z) "retrograde" :blue
+      (inversion Z) "inversion" :orange
+      (rotation Z 1) "rotation" :green)
 \end{verbatim}
 
 \begin{figure}
@@ -157,6 +127,8 @@ and colors to be output in graphic.
   \caption{\goiaba{} output: Z(0 5 3 4 1 3) contour operations}
   \label{fig:operacoes}
 \end{figure}
+
+%% write small conclusion
 
 \section{The application of Contour in composition}
 \label{sec:cont-appl-comp}
