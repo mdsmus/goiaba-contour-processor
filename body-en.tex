@@ -44,7 +44,7 @@ have the same pitch contour, graphically represented in figure
 The study of Contour is important because, like motives and pitch
 sets, contours can help to give coherence to a musical piece. They
 represent structural devices that can be combined through operations
-like inversion and retrogradation, and can be aproached by analytical
+like inversion and retrogradation, and can be approached by analytical
 or compositional points of view.
 
 \begin{figure}[h!]
@@ -74,7 +74,7 @@ contour processor software (see section \ref{sec:goiaba}).
 \section{The contour processing program Goiaba}
 \label{sec:goiaba}
 
-\goiaba{} is a program writen in Common Lisp
+\goiaba{} is a program written in Common Lisp
 \cite{graham94:lisp,team07:sbcl} to process and plot contours
 developed by the authors of this paper. It has many contour-related
 operations, like inversion, retrogradation, rotation, contour
@@ -88,7 +88,7 @@ file.
 
 \goiaba{} has two representations for contours; simple contours
 represents only the values of the contour elements, and contour with
-durations is basicaly a colection of cartesian points. For instance,
+durations is basically a collection of cartesian points. For instance,
 the contour in figure \ref{fig:c-3120} would be represented as a
 simple contour in \goiaba{} as \code{\#s(3 1 2 0)} and as a contour
 with duration as \code{\#d(\#p(0 3)\#p(1 1)\#p(2 2)\#p(3 0))}. The
@@ -101,7 +101,7 @@ reader macros that expand into code to instantiate objects of types
 simple-contour, contour-with-duration, and point, respectively. For
 instance, \code{\#(0 1)} is expanded to \code{(make-instance 'point :x
   0 :y 1)}. Finally, \goiaba{} has a few constructor functions besides
-the reader macros to help the criation of contour objects. These
+the reader macros to help the creation of contour objects. These
 functions, \texttt{make-point-list},
 \texttt{make-sim\-ple-contour-list}, and
 \texttt{make-contour-with-dura\-tion-list}, map a list to the
@@ -149,7 +149,7 @@ operations and plotting. The piece is based on combinations of contour
 operations associated to parameters such as pitch, tempo, density and
 texture. This quintet is based on P(5 3 4 1 2 0) contour
 (fig. \ref{fig:c-534120}, its subsets and operations---retrogradation,
-inversion, rotation, interpollation.
+inversion, rotation, interpolation.
 
 \begin{figure}
   \centering
@@ -159,12 +159,12 @@ inversion, rotation, interpollation.
 \end{figure}
 
 \goiaba{} was essential to compose a \eng{fugato}, in the quintet,
-because each piece of subject and countersubject were based on
+because each piece of subject and counter-subject were based on
 different combinations of rotation and retrogradation operations.  The
 subject has original contour P(5 3 4 1 2 0) and factor 3 rotation
 (fig. \ref{fig:sujeito-fugato}). Figure
 \ref{fig:output-sujeito-fugato} has the contour software output for
-graphical representations of these subject operations. Contoursubject
+graphical representations of these subject operations. Contour-subject
 has original contour retrogradation repeated three times with
 different rotation factors---5, 4 and 3
 (fig. \ref{fig:contra-sujeito-fugato}). In the same way software
@@ -178,7 +178,7 @@ output for these operations are in figure
     \label{fig:sujeito-fugato}
   }
 
-  \subfloat[Countersubject]{
+  \subfloat[Counter-subject]{
     \includegraphics[scale=2.8]{contra-sujeito-fugato}
     \label{fig:contra-sujeito-fugato}
   }
@@ -192,7 +192,7 @@ output for these operations are in figure
     \includegraphics[scale=.44]{output-subject}
     \label{fig:output-sujeito-fugato}
   }
-  \subfloat[Countersubject]{
+  \subfloat[Counter-subject]{
     \includegraphics[scale=.44]{output-countersubject}
     \label{fig:output-contra-sujeito-fugato}
   }
