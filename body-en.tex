@@ -96,13 +96,14 @@ notation \code{\#s(\ldots)} and \code{\#d(\ldots)} indicate a simple
 contour and a contour with duration, respectively. The notation
 \code{\#p(x y)} indicates a point with two values. So, from the
 example we can see that \goiaba{} really represents a contour with
-duration as a collection of points. \#s, \#d, and \#p are user-defined
+duration as a collection of points. \note{Usar alguma palavra no
+  início do período. Symbols?} \#s, \#d, and \#p are user-defined
 reader macros that expand into code to instantiate objects of types
 simple-contour, contour-with-duration, and point, respectively. For
-instance, \code{\#(0 1)} is expanded to \code{(make-instance 'point :x
-  0 :y 1)}. Finally, \goiaba{} has a few constructor functions besides
-the reader macros to help the creation of contour objects. These
-functions, \texttt{make-point-list},
+instance, \code{\#p(0 1)} is expanded to \code{(make-instance 'point
+  :x 0 :y 1)}. Finally, \goiaba{} has a few constructor functions
+besides the reader macros to help the creation of contour
+objects. These functions, \texttt{make-point-list},
 \texttt{make-sim\-ple-contour-list}, and
 \texttt{make-contour-with-dura\-tion-list}, map a list to the
 correspondent object.
@@ -139,10 +140,9 @@ Systematic studies about the usage of contour operations and
 combinations in musical composition are scarce, despite the possible
 coherence that contours can give and the operations provided by
 contour theories. For this reason we are researching contours usage in
-composition. The first author of this paper, in his
-master's\footnote{The reference was omitted to keep anonymity. It will
-  be included in final version.}, composed a woodwind quintet based on
-contour theories operations.
+composition. The first author of this paper, in his master's
+\cite{sampaio08:em}, composed a woodwind quintet based on contour
+theories operations.
 
 This quintet was composed entirely using \goiaba{} to simplify
 operations and plotting. The piece is based on combinations of contour
