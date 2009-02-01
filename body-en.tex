@@ -96,14 +96,13 @@ notation \code{\#s(\ldots)} and \code{\#d(\ldots)} indicate a simple
 contour and a contour with duration, respectively. The notation
 \code{\#p(x y)} indicates a point with two values. So, from the
 example we can see that \goiaba{} really represents a contour with
-duration as a collection of points. \note{Usar alguma palavra no
-  início do período. Symbols?} \#s, \#d, and \#p are user-defined
-reader macros that expand into code to instantiate objects of types
-simple-contour, contour-with-duration, and point, respectively. For
-instance, \code{\#p(0 1)} is expanded to \code{(make-instance 'point
-  :x 0 :y 1)}. Finally, \goiaba{} has a few constructor functions
-besides the reader macros to help the creation of contour
-objects. These functions, \texttt{make-point-list},
+duration as a collection of points. The symbols \#s, \#d, and \#p are
+user-defined reader macros that expand into code to instantiate
+objects of types simple-contour, contour-with-duration, and point,
+respectively. For instance, \code{\#p(0 1)} is expanded to
+\code{(make-instance 'point :x 0 :y 1)}. Finally, \goiaba{} has a few
+constructor functions besides the reader macros to help the creation
+of contour objects. These functions, \texttt{make-point-list},
 \texttt{make-sim\-ple-contour-list}, and
 \texttt{make-contour-with-dura\-tion-list}, map a list to the
 correspondent object.
@@ -129,9 +128,32 @@ and rotation. The result can be seen in figure \ref{fig:operacoes}.
   \label{fig:operacoes}
 \end{figure}
 
-\note{write about the advantages of lisp's multimethods}
+\goiaba{} takes advantages of Common Lisp's multimethods capabilities.
+In Common Lisp a method is actually a generic function that
+specializes on the type of arguments. For example, we have two
+definitions for a generic function called \texttt{rotate}, one
+specializes on the contour-with-duration object while the other on the
+simple-contour object. The advantage of this approach is that we can
+add more types of contour if necessary and write the appropriate
+generic functions that will specialize on those types, without
+disrupting the existing code.
 
-\note{write small conclusion}
+\begin{figure*}
+\begin{verbatim}
+(defmethod rotate ((object contour-with-duration) &optional (factor 1))
+  (if (> fator (length (points object)))
+      (let ((x (mapcar #'point-x (points object)))
+            (y (mapcar #'point-y (points object))))
+        (make-contour-with-duration (mapcar #'make-point x
+           (append (subseq y factor) (subseq y 0 factor)))))))
+
+(defmethod rotate ((object simple-contour) &optional (factor 1))
+  (make-simple-contour (append (subseq (points object) factor)
+                               (subseq (points object) 0 factor))))
+\end{verbatim}
+  \caption{Multi-methods}
+  \label{fig:code-methods}
+\end{figure*}
 
 \section{The application of Contour in composition}
 \label{sec:cont-appl-comp}
