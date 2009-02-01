@@ -91,7 +91,7 @@ represents only the values of the contour elements, and contour with
 durations is basically a collection of cartesian points. For instance,
 the contour in figure \ref{fig:c-3120} would be represented as a
 simple contour in \goiaba{} as \code{\#s(3 1 2 0)} and as a contour
-with duration as \code{\#d(\#p(0 3)\#p(1 1)\#p(2 2)\#p(3 0))}. The
+with duration as \code{\#d(\#p(0 3) \#p(1 1) \#p(2 2) \#p(3 0))}. The
 notation \code{\#s(\ldots)} and \code{\#d(\ldots)} indicate a simple
 contour and a contour with duration, respectively. The notation
 \code{\#p(x y)} indicates a point with two values. So, from the
@@ -103,7 +103,7 @@ respectively. For instance, \code{\#p(0 1)} is expanded to
 \code{(make-instance 'point :x 0 :y 1)}. Finally, \goiaba{} has a few
 constructor functions besides the reader macros to help the creation
 of contour objects. These functions, \texttt{make-point-list},
-\texttt{make-sim\-ple-contour-list}, and
+\texttt{make-sim\-ple-contour\-list}, and
 \texttt{make-contour-with-dura\-tion-list}, map a list to the
 correspondent object.
 
