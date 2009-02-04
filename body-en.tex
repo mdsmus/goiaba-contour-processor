@@ -102,19 +102,20 @@ contour and a contour with duration, respectively. The notation
 \code{\#p(x y)} indicates a point with two values. So, from the
 example we can see that \goiaba{} really represents a contour with
 duration as a collection of points. The symbols \#s, \#d, and \#p are
-user-defined reader macros that expand into code to instantiate
+user-defined lisp reader macros that expand into code to instantiate
 objects of types simple-contour, contour-with-duration, and point,
 respectively. For instance, \code{\#p(0 1)} is expanded to
-\code{(make-instance 'point :x 0 :y 1)}. Finally, \goiaba{} has a few
+\code{(make-instance 'point :x 0 :y 1)}, which is the usual way of
+instantiating objects in common lisp. Finally, \goiaba{} has a few
 constructor functions besides the reader macros to help the creation
-of contour objects. These functions, \texttt{make-point-list},
+of contour objects. The functions, \texttt{make-point-list},
 \texttt{make-sim\-ple-contour\-list}, and
 \texttt{make-contour-with-dura\-tion-list}, map a list to the
 correspondent object.
 
 \goiaba{} uses the Cl-pdf library\footnote{\url{www.cliki.net/CL-PDF}}
 to plot contours, allowing easy visualization of contour operations.
-For instance, the following code generates a graph with the original
+For instance, the following code generates a figure with the original
 contour Z, \code{\#s(0 5 3 4 1 3)}, and its retrogradation, inversion,
 and rotation. The result can be seen in figure \ref{fig:operacoes}.
 
@@ -135,7 +136,7 @@ and rotation. The result can be seen in figure \ref{fig:operacoes}.
 
 \goiaba{} takes advantages of Common Lisp's multimethods capabilities.
 In Common Lisp a method is actually a generic function that
-specializes on the type of arguments. For example, we have two
+specializes on the type of its arguments. For example, we have two
 definitions for a generic function called \texttt{rotate}, one
 specializes on the contour-with-duration object while the other on the
 simple-contour object. The advantage of this approach is that we can
