@@ -93,22 +93,23 @@ file.
 
 \goiaba{} has two representations for contours; simple contours
 represents only the values of the contour elements, and contour with
-durations is basically a collection of cartesian points. For instance,
-the contour in figure \ref{fig:c-3120} would be represented as a
-simple contour in \goiaba{} as \code{\#s(3 1 2 0)} and as a contour
-with duration as \code{\#d(\#p(0 3) \#p(1 1) \#p(2 2) \#p(3 0))}. The
-notation \code{\#s(\ldots)} and \code{\#d(\ldots)} indicate a simple
-contour and a contour with duration, respectively. The notation
-\code{\#p(x y)} indicates a point with two values. So, from the
-example we can see that \goiaba{} really represents a contour with
-duration as a collection of points. The symbols \#s, \#d, and \#p are
-user-defined lisp reader macros that expand into code to instantiate
-objects of types simple-contour, contour-with-duration, and point,
-respectively. For instance, \code{\#p(0 1)} is expanded to
-\code{(make-instance 'point :x 0 :y 1)}, which is the usual way of
-instantiating objects in common lisp. Finally, \goiaba{} has a few
-constructor functions besides the reader macros to help the creation
-of contour objects. The functions, \texttt{make-point-list},
+durations is basically a collection of cartesian points. \note{I'm not
+  happy with the following sentence} For instance, the contour in
+figure \ref{fig:c-3120} would be represented as a simple contour in
+\goiaba{} as \code{\#s(3 1 2 0)} and as a contour with duration as
+\code{\#d(\#p(0 3) \#p(1 1) \#p(2 2) \#p(3 0))}. The notation
+\code{\#s(\ldots)} and \code{\#d(\ldots)} indicate a simple contour
+and a contour with duration, respectively. The notation \code{\#p(x
+  y)} indicates a point with two values. So, from the example we can
+see that \goiaba{} really represents a contour with duration as a
+collection of points. The symbols \#s, \#d, and \#p are user-defined
+lisp reader macros that expand into code to instantiate objects of
+types simple-contour, contour-with-duration, and point, respectively.
+For instance, \code{\#p(0 1)} is expanded to \code{(make-instance
+  'point :x 0 :y 1)}, which is the usual way of instantiating objects
+in common lisp. Finally, \goiaba{} has a few constructor functions
+besides the reader macros to help the creation of contour objects. The
+functions, \texttt{make-point-list},
 \texttt{make-sim\-ple-contour\-list}, and
 \texttt{make-contour-with-dura\-tion-list}, map a list to the
 correspondent object.
