@@ -32,7 +32,7 @@ For instance, the music in figures \ref{fig:5a-sinfonia-motivo} and
 in figure \ref{fig:c-3120}, and symbolically by F(3 1 2
 0)\footnote{The uppercase letter F names the contour.}. Yet, both
 passages sound completely different. In our opinion that is a feature
-in using contour theory in composition, to have an underlining process
+of using contour theory in composition, to have an underlining process
 providing coherence and musical variety at the same time.
 
 The study of contour is important because contours can help to give
@@ -88,23 +88,23 @@ file.
 
 \goiaba{} has two representations for contours; simple contours
 represents only the values of the contour elements, and contours with
-durations are basically ordered collections of cartesian points.  For
+durations are basically ordered collections of cartesian points. For
 instance, the contour in figure \ref{fig:c-3120} would be represented
-as a simple contour in \goiaba{} as \code{\#s(3 1 2 0)} and as a
-contour with duration as \code{\#d(\#p(0 3) \#p(1 1) \#p(2 2) \#p(3
-  0))}. The notations \\\code{\#s(\ldots)} and \code{\#d(\ldots)}
-indicate a simple contour and a contour with duration,
-respectively. The notation \code{\#p(x y)} indicates a point with two
-values. So, from the example we can see that \goiaba{} really
-represents a contour with duration as a collection of points. The
-symbols \#s, \#d, and \#p are user-defined lisp reader macros that
-expand into code to instantiate objects of types simple-contour,
-contour-with-duration, and point, respectively.  For instance,
-\code{\#p(0 1)} is expanded to \code{(make-instance 'point :x 0 :y
-  1)}, which is the usual way of instantiating objects in common
-lisp. Finally, \goiaba{} has a few constructor functions besides the
-reader macros to help the creation of contour objects. The functions,
-\texttt{make-point-list}, \texttt{make-sim\-ple-contour\-list}, and
+as a simple contour as \code{\#s(3 1 2 0)} and as a contour with
+duration as \code{\#d(\#p(0 3) \#p(1 1) \#p(2 2) \#p(3 0))}. The forms
+\code{\#s(\ldots)} and \code{\#d(\ldots)} indicate a simple contour
+and a contour with duration, respectively. The notation \code{\#p(x
+  y)} indicates a point with two values. So, from the example we can
+see that \goiaba{} really represents a contour with duration as a
+collection of points. The symbols \#s, \#d, and \#p are user-defined
+lisp reader macros that expand into code to instantiate objects of
+types simple-contour, contour-with-duration, and point, respectively.
+For instance, \code{\#p(0 1)} is expanded to \code{(make-instance
+  'point :x 0 :y 1)}, which is the usual way of instantiating objects
+in common lisp. Finally, \goiaba{} has a few constructor functions
+besides the reader macros to help the creation of contour objects. The
+functions, \texttt{make-point-list},
+\texttt{make-sim\-ple-contour\-list}, and
 \texttt{make-contour-with-du\-ra\-tion-list}, map a list to the
 correspondent object.
 
@@ -124,7 +124,7 @@ figure \ref{fig:operacoes}.
       (inversion Z) "inversion" :orange
       (rotation Z 1) "rotation" :green)
 \end{verbatim}
-  \caption{Operations code}
+  \caption{Code to compute and plot a few operations}
   \label{fig:operations-code}
 \end{figure}
 
@@ -158,7 +158,7 @@ disrupting the existing code.
   (make-simple-contour (append (subseq (points object) factor)
                                (subseq (points object) 0 factor))))
 \end{verbatim}
-  \caption{Multi-methods}
+  \caption{Definition of \texttt{rotate} as Multi-methods}
   \label{fig:code-methods}
 \end{figure*}
 
@@ -175,7 +175,9 @@ The first author of this paper, during his master's\footnote{The
 % \cite{sampaio08:em}
 , composed a woodwind quintet, 
 % \textit{Em Torno da Romã}\footnote{Around the Pomegranate}
-based on contour theories operations.
+based on contour theories operations. We will use this piece as a case
+study for the use of contour theory in composition, and how \goiaba{}
+was useful in the compositional process.
 
 % \textit{Em torno da Romã}
 This piece
@@ -190,7 +192,7 @@ interpolation.
 \begin{figure}
   \centering
   \includegraphics{c-534120}
-  \caption{P(5 3 4 1 2 0) contour}
+  \caption{The P(5 3 4 1 2 0) contour}
   \label{fig:c-534120}
 \end{figure}
 
