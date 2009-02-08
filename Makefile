@@ -1,4 +1,4 @@
-NAME = goiaba-contour-processor
+NAME = icmc2009
 TEXSRCS = body-en.tex bibliography.tex abstract.tex
 OTHER += $(LILY_PDF) $(SVG_PDF) $(GNUPLOT_PDF)
 
@@ -12,3 +12,4 @@ clean-partial:
 	rm -f $(NAME).log
 	rm -f $(NAME).bbl
 	rm -f $(NAME).blg
+	rm -f $(NAME).out
