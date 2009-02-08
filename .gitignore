@@ -1,9 +1,10 @@
 *.aux
 *.bbl
 *.blg
-*.log
-*.ps
 *.eps
+*.log
 *.out
+*.ps
+/icmc2009.pdf
 data/*.pdf
 lily/*.pdf
