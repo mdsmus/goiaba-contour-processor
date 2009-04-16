@@ -1,0 +1,71 @@
+% -----------------------------------------------
+% Template for SMC 2009
+%     smc2009.sty -> style file
+% Last modified by Fabien Gouyon (smc2009@inescporto.pt)
+% Modified by Juan P. Bello (ismir2008-papers@ismir.net)
+% By Rainer Typke (ismir07.rainer@safersignup.com)
+% Based on the 2004 template by Eloi Batlle.
+% -----------------------------------------------
+
+\documentclass{article}
+\usepackage{smc2009,amsmath}
+% To use when using pdflatex
+\usepackage{graphicx}
+\usepackage{url}
+% To use when using latex, dvips and ps2pdf
+% \usepackage[dvips]{graphicx}
+
+\usepackage{subfig}
+
+% Title.
+% ------
+\title{Paper Template for SMC 2009}
+
+% IMPORTANT NOTICE:
+% Reviews are double-blind
+% Authors will not be informed of who reviews their papers, and author names will be concealed from the reviewers 
+% Please avoid evident self references in the text
+
+% Authors' names must be omitted from title page (or listed as Òname(s) omitted for submissionÓ)
+
+
+% Single address
+% To use with only one author or several with the same address
+% ---------------
+%\oneauthor
+%   {Author} {School \\ Email}
+
+% Two addresses
+ %--------------
+% \twoauthors
+%   {Marcos Sampaio} {Genos---Computer Music Research Group\\ School of
+%     Music \\ Federal University of Bahia, Brazil \\ mdsmus@gmail.com}
+%   {Pedro Kröger} {Genos---Computer Music Research Group\\ School of
+%     Music \\ Federal University of Bahia, Brazil \\ pedro.kroger@gmail.com}
+
+% Three addresses
+% --------------
+%\threeauthors
+%  {First author} {School \\ Email}
+%  {Second author} {Company \\ Email}
+%  {Third author} {Company \\ Email}
+
+\input{newcommand}
+
+\begin{document}
+%
+\maketitle
+%
+
+\permission
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+\input{body-en}
+
+\bibliographystyle{IEEEtranS}
+\input{bibliography}
+
+\end{document}
