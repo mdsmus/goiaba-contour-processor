@@ -147,16 +147,21 @@ disrupting the existing code.
 
 \begin{figure*}
 \begin{verbatim}
-(defmethod rotate ((object contour-with-duration) &optional (factor 1))
+(defmethod rotate ((object contour-with-duration) 
+                   &optional (factor 1))
   (if (> fator (length (points object)))
       (let ((x (mapcar #'point-x (points object)))
             (y (mapcar #'point-y (points object))))
         (make-contour-with-duration (mapcar #'make-point x
-           (append (subseq y factor) (subseq y 0 factor)))))))
+           (append (subseq y factor)
+                   (subseq y 0 factor)))))))
 
-(defmethod rotate ((object simple-contour) &optional (factor 1))
-  (make-simple-contour (append (subseq (points object) factor)
-                               (subseq (points object) 0 factor))))
+(defmethod rotate ((object simple-contour)
+                   &optional (factor 1))
+  (make-simple-contour (append (subseq (points object)
+                                       factor)
+                               (subseq (points object)
+                                       0 factor))))
 \end{verbatim}
   \caption{Definition of \texttt{rotate} as Multi-methods}
   \label{fig:code-methods}
@@ -229,6 +234,7 @@ see the graphical output of these contours in figure
     \includegraphics[scale=.44]{output-subject}
     \label{fig:output-sujeito-fugato}
   }
+  \quad
   \subfloat[Counter-subject]{
     \includegraphics[scale=.44]{output-countersubject}
     \label{fig:output-contra-sujeito-fugato}
