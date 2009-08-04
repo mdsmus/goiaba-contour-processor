@@ -15,7 +15,6 @@ represented respectively in figures~\ref{fig:5a-sinfonia-motivo} and
     \includegraphics[scale=.9]{5a-sinfonia}
     \label{fig:5a-sinfonia-motivo}
   }
-
   \subfloat[Contour F(3 1 2 0)]{
     \includegraphics{c-3120}
     \label{fig:c-3120}
@@ -145,28 +144,6 @@ add more types of contour if necessary and write the appropriate
 generic functions that will specialize on those types, without
 disrupting the existing code.
 
-\begin{figure*}
-\begin{verbatim}
-(defmethod rotate ((object contour-with-duration) 
-                   &optional (factor 1))
-  (if (> fator (length (points object)))
-      (let ((x (mapcar #'point-x (points object)))
-            (y (mapcar #'point-y (points object))))
-        (make-contour-with-duration (mapcar #'make-point x
-           (append (subseq y factor)
-                   (subseq y 0 factor)))))))
-
-(defmethod rotate ((object simple-contour)
-                   &optional (factor 1))
-  (make-simple-contour (append (subseq (points object)
-                                       factor)
-                               (subseq (points object)
-                                       0 factor))))
-\end{verbatim}
-  \caption{Definition of \texttt{rotate} as Multi-methods}
-  \label{fig:code-methods}
-\end{figure*}
-
 \section{The application of Contour in composition}
 \label{sec:cont-appl-comp}
 
@@ -196,7 +173,7 @@ interpolation.
 
 \begin{figure}
   \centering
-  \includegraphics{c-534120}
+  \includegraphics[scale=.75]{c-534120}
   \caption{The P(5 3 4 1 2 0) contour}
   \label{fig:c-534120}
 \end{figure}
@@ -231,12 +208,11 @@ see the graphical output of these contours in figure
 \begin{figure*}
   \centering
   \subfloat[Subject]{
-    \includegraphics[scale=.44]{output-subject}
+    \includegraphics[scale=.37]{output-subject}
     \label{fig:output-sujeito-fugato}
   }
-  \quad
   \subfloat[Counter-subject]{
-    \includegraphics[scale=.44]{output-countersubject}
+    \includegraphics[scale=.37]{output-countersubject}
     \label{fig:output-contra-sujeito-fugato}
   }
   \caption{Software output for \eng{fugato} contour operations}
