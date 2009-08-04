@@ -134,16 +134,6 @@ figure~\ref{fig:operacoes}.
   \label{fig:operacoes}
 \end{figure}
 
-\goiaba{} takes advantages of Common Lisp's multimethods capabilities.
-In Common Lisp a method is actually a generic function that
-specializes on the type of its arguments. For example, we have two
-definitions for a generic function called \texttt{rotate}, one
-specializes on the contour-with-duration object while the other on the
-simple-contour object. The advantage of this approach is that we can
-add more types of contour if necessary and write the appropriate
-generic functions that will specialize on those types, without
-disrupting the existing code.
-
 \section{The application of Contour in composition}
 \label{sec:cont-appl-comp}
 
