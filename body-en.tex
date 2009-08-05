@@ -116,22 +116,23 @@ figure~\ref{fig:operacoes}.
 
 \begin{figure}
   \centering
+  \begin{SubFloat}{\label{fig:operations-code}Code to compute and plot a few operations}%...verbatim subfigure with
+    \begin{minipage}[b]{0.5\linewidth}% a minipage to control the width...
 \begin{verbatim}
 (plot "contour.pdf"
-      Z "original Z" :red
-      (retrograde Z) "retrograde" :blue
-      (inversion Z) "inversion" :orange
-      (rotation Z 1) "rotation" :green)
-\end{verbatim}
-  \caption{Code to compute and plot a few operations}
-  \label{fig:operations-code}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[scale=.44]{contornos}
-  \caption{\goiaba{} output: Z(0 5 3 4 1 3) contour operations}
-  \label{fig:operacoes}
+  Z "original Z" :red
+  (retrograde Z) "retrograde" :blue
+  (inversion Z) "inversion" :orange
+  (rotation Z 1) "rotation" :green)
+\end{verbatim}%
+    \end{minipage}%
+  \end{SubFloat}
+  \hspace{1.5cm}%
+  \begin{SubFloat}[Black box]{\label{fig:operacoes}Output: Z(0 5 3 4 1 3) contour operations}%
+    \includegraphics[scale=.25]{contornos}
+  \end{SubFloat}%
+  \caption{\goiaba{} input code and graphic output}
+  \label{fig:label}
 \end{figure}
 
 \section{The application of Contour in composition}
@@ -158,13 +159,6 @@ parameters such as pitch, tempo, density and texture. In figure
 and operations; retrogradation, inversion, rotation, and
 interpolation.
 
-\begin{figure}
-  \centering
-  \includegraphics[scale=.75]{c-534120}
-  \caption{The P(5 3 4 1 2 0) contour}
-  \label{fig:c-534120}
-\end{figure}
-
 \goiaba{} was essential to compose a \eng{fugato} session in the
 quintet because each part of the subject and countersubject were based
 on different combinations of operations of rotation and
@@ -179,13 +173,17 @@ see the graphical output of these contours in figure
 
 \begin{figure*}
   \centering
+  \subfloat[The P(5 3 4 1 2 0) contour]{
+  \includegraphics[scale=.75]{c-534120}
+  \label{fig:c-534120}
+  }
   \subfloat[Subject]{
-    \includegraphics[scale=2.8]{sujeito-fugato}
+    \includegraphics[scale=2.6]{sujeito-fugato}
     \label{fig:sujeito-fugato}
   }
 
   \subfloat[Counter-subject]{
-    \includegraphics[scale=2.8]{contra-sujeito-fugato}
+    \includegraphics[scale=2.6]{contra-sujeito-fugato}
     \label{fig:contra-sujeito-fugato}
   }
   \caption{Structural elements of \eng{fugato}}
@@ -195,11 +193,11 @@ see the graphical output of these contours in figure
 \begin{figure*}
   \centering
   \subfloat[Subject]{
-    \includegraphics[scale=.37]{output-subject}
+    \includegraphics[scale=.25]{output-subject}
     \label{fig:output-sujeito-fugato}
   }
   \subfloat[Counter-subject]{
-    \includegraphics[scale=.37]{output-countersubject}
+    \includegraphics[scale=.25]{output-countersubject}
     \label{fig:output-contra-sujeito-fugato}
   }
   \caption{Software output for \eng{fugato} contour operations}
