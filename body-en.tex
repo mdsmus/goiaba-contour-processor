@@ -62,8 +62,7 @@ A computer program to process contours can assist composers and
 analysts in tasks like the calculation of operations---avoiding human
 error and wasting time---, automated graphical plotting, and
 conversion from music score to contours and vice-versa. For these
-reasons we are developing \goiaba{}\footnote{Goiaba is the Portuguese
-  for guava.}, a software to contour processing (described in section
+reasons we are developing \goiaba{}, a software to contour processing (described in section
 \ref{sec:goiaba}).
 
 In this article we will present \goiaba{}, its data representation,
@@ -73,13 +72,12 @@ which \goiaba{} was used to compose most of a woodwind quintet.
 \section{The contour processing program Goiaba}
 \label{sec:goiaba}
 
-\goiaba{} is a program written in Common Lisp
-\cite{graham94:lisp,team07:sbcl} developed by the authors of this
-paper to process and plot contours. It has many contour-related
-operations, like inversion, retrogradation, rotation, contour
-reduction \cite{adams76:melodic}, contour class, contour adjacency
-series, contour adjacency series vector, contour interval, contour
-interval array, contour class vector I and II
+\goiaba{} is a program written in Common Lisp developed by the authors
+of this paper to process and plot contours. It has many
+contour-related operations, like inversion, retrogradation, rotation,
+contour reduction \cite{adams76:melodic}, contour class, contour
+adjacency series, contour adjacency series vector, contour interval,
+contour interval array, contour class vector I and II
 \cite{friedmann85:methodology}, and comparison matrix
 \cite{morris93:directions}. Currently, \goiaba{} accepts and shows
 contours in a numeric format, but it can also plot contours in a pdf
@@ -107,7 +105,7 @@ functions, \texttt{make-point-list},
 \texttt{make-contour-with-du\-ra\-tion-list}, map a list to the
 correspondent object.
 
-\goiaba{} uses the Cl-pdf library\footnote{\url{www.cliki.net/CL-PDF}}
+\goiaba{} uses the Cl-pdf library
 to plot contours, allowing easy visualization of contour operations.
 For instance, the code in figure~\ref{fig:operations-code} generates a
 graph with the original contour Z, \code{\#s(0 5 3 4 1 3)}, and its
