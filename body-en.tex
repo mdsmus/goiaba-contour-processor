@@ -9,7 +9,7 @@ Symphony's main motive and the corresponding pitch contour are
 represented respectively in figures~\ref{fig:5a-sinfonia-motivo} and
 \ref{fig:c-3120}.
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \subfloat[Main motive]{
     \includegraphics[scale=.9]{5a-sinfonia}
@@ -132,6 +132,16 @@ figure~\ref{fig:operacoes}.
   \caption{\goiaba{} input code and graphic output}
   \label{fig:label}
 \end{figure}
+
+\goiaba{} takes advantages of Common Lisp's multimethods capabilities.
+In Common Lisp a method is actually a generic function that
+specializes on the type of its arguments. For example, we have two
+definitions for a generic function called \texttt{rotate}, one
+specializes on the contour-with-duration object while the other on the
+simple-contour object. The advantage of this approach is that we can
+add more types of contour if necessary and write the appropriate
+generic functions that will specialize on those types, without
+disrupting the existing code.
 
 \section{The application of Contour in composition}
 \label{sec:cont-appl-comp}
