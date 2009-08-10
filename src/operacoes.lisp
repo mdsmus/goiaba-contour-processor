@@ -20,7 +20,7 @@
                             (inverter Z) "inversion" :darkgray
                             (rotacionar Z 1) "rotation" :lightgray)
                            :width 250 :height 250 :font-size 12.0
-                           :grid-line-width .5 :grid-line-color :lightgrey
+                           :grid-line-width .2 :grid-line-color :lightgrey
                            :line-width 2.5 :legend-font-size 20.0))))
 
 ;; exemplo sujeito do fugato
@@ -38,7 +38,7 @@
                             contorno "P" :black
                             (rotacionar contorno 3) "rot(P) 3" :gray)
                            :width 250 :height 250 :font-size 12.0
-                           :grid-line-width .5 :grid-line-color :lightgrey
+                           :grid-line-width .2 :grid-line-color :lightgrey
                            :line-width 2.5 :legend-font-size 20.0))))
 
 ;; exemplo contrasujeito do fugato
@@ -58,5 +58,5 @@
                             (rotacionar (retrogradar contorno) 4) "rot(retr(P) 4)" :gray
                             (rotacionar (retrogradar contorno) 3) "rot(retr(P) 3)" :lightgray)
                            :width 250 :height 250 :font-size 12.0
-                           :grid-line-width .5 :grid-line-color :lightgrey
+                           :grid-line-width .2 :grid-line-color :lightgrey
                            :line-width 2.5 :legend-font-size 20.0))))
