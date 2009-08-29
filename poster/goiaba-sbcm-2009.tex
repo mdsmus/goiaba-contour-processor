@@ -1,5 +1,4 @@
 \documentclass[a0paper]{sciposter}
-\usepackage[brazil]{babel}
 \RequirePackage[utf8,utf8x]{inputenc}
 \usepackage{url}
 \usepackage{multicol}
@@ -165,14 +164,87 @@ disrupting the existing code.
 \begin{center}
 \begin{multicols}{2}
 
-%% insere figuras aqui
+\begin{figure}
+  \centering
+  \includegraphics[scale=2.5]{5a-sinfonia}
+  \caption{Fifth Symphony main motive}
+  \label{fig:5a-sinfonia-motivo}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=2.5]{c-3120}
+  \caption{Fifth Symphony F(3 1 2 0) contour}
+  \label{fig:c-3120}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=2.5]{ly-3120-qualquer}
+  \caption{A melody with the F(3 1 2 0) contour}
+  \label{fig:ly-3120}
+\end{figure}
+
+\begin{figure}
+  \centering
+\begin{verbatim}
+(plot "contour.pdf"
+  Z "original Z" :red
+  (retrograde Z) "retrograde" :blue
+  (inversion Z) "inversion" :orange
+  (rotation Z 1) "rotation" :green)
+\end{verbatim}%
+  \caption{Input code to compute and plot a few operations}
+  \label{fig:operations-code}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=1]{contornos}
+  \caption{Graphic Output: Z(0 5 3 4 1 3) contour operations}
+  \label{fig:operacoes}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=1.5]{c-534120}
+  \caption{P(5 3 4 1 2 0): fugato contour}
+  \label{fig:c-534120}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=8]{sujeito-fugato}
+  \caption{Fugato Subject}
+    \label{fig:sujeito-fugato}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=8]{contra-sujeito-fugato}
+  \caption{Fugato Counter-subject}
+  \label{fig:contra-sujeito-fugato}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=1]{output-subject}
+  \caption{Software Output: Fugato Subject}
+  \label{fig:output-sujeito-fugato}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=1]{output-countersubject}
+  \caption{Software Output: Counter-subject}
+  \label{fig:output-contra-sujeito-fugato}
+\end{figure}
 
 \end{multicols}
 \end{center}
 
 
 \begin{multicols}{3}
-
 
 \section{The application of Contour in composition}
 
