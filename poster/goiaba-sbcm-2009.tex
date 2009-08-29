@@ -1,0 +1,83 @@
+\documentclass[a0paper]{sciposter}
+\usepackage[brazil]{babel}
+\RequirePackage[utf8,utf8x]{inputenc}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage[dvips,dvipdfm,top=4cm,bottom=-10cm,left=4cm,right=8cm]{geometry}
+
+
+% usar para termos estrangeiros
+\newcommand{\eng}[1]{\textit{#1}}
+
+\newcommand{\goiaba}[1]{\textit{Goiaba}}
+
+\renewcommand{\papertype}{a0paper}
+\renewcommand{\fontpointsize}{25pt}
+
+% \setlength{\paperwidth}{85cm}
+% \setlength{\paperheight}{127cm}
+% \renewcommand{\setpspagesize}{
+%   \ifthenelse{\equal{\orientation}{portrait}}{
+%     \special{papersize=85cm,127cm}
+%     }{\special{papersize=127cm,85cm}
+%     }
+%   }
+
+\definecolor{SectionCol}{rgb}{1,1,1}
+\definecolor{BoxCol}{rgb}{.230,.230,.76}
+
+\def\abovestrut#1{\rule[0in]{0in}{#1}\ignorespaces}
+\def\belowstrut#1{\rule[-#1]{0in}{#1}\ignorespaces}
+
+\def\abovespace{\abovestrut{0.20in}}
+\def\aroundspace{\abovestrut{0.20in}\belowstrut{0.10in}}
+\def\belowspace{\belowstrut{0.10in}}
+
+\title{Goiaba: a software to process musical contours}
+
+\author{Marcos Sampaio, Pedro Kröger}
+
+\institute{Genos---Computer Music Research Group \\
+Federal University of Bahia (UFBA) \\
+Salvador, Brazil}
+
+\email{\{mdsmus,pedro.kroger\}@gmail.com}
+
+% The following commands can be used to alter the default logo settings
+% \leftlogo[.7]{figs/ufba-logo}{  % defines logo to left of title (with scale factor)
+% \rightlogo[1.1]{figs/capes-logo}  % same but on right
+
+\begin{document}
+
+\bibliographystyle{plain}
+
+\conference{\Large \textbf{XII SBCM --- 2009
+    \hfill \textsf{Grupo de Pesquisa: GENOS}}}
+
+\maketitle
+
+\begin{multicols}{3}
+
+
+\end{multicols}
+
+\begin{center}
+\begin{multicols}{2}
+
+
+\end{multicols}
+\end{center}
+
+
+\begin{multicols}{3}
+
+\renewcommand{\refname}{References}
+
+\bibliography{strings-short,bibliography,computer-music,ismir,writing-style,harmonic-analysis,music-analysis,computational-musicology,melodic-contour,music-harmony-and-theory,programs,music-scores,genos}
+
+\end{multicols}
+
+\end{document}
