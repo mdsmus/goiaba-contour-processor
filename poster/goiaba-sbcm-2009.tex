@@ -55,7 +55,7 @@ Federal University of Bahia (UFBA). Salvador, Brazil}
 
 \begin{multicols}{3}
 
-\section{Introduction}
+\section{Musical Contour}
 
 Contour is the shape or format of an object. In music one can speak of
 a pitch contour, density contour, and so on. Contours can easily be
@@ -73,12 +73,6 @@ For instance, the music in figures~\ref{fig:5a-sinfonia-motivo} and
 in figure~\ref{fig:c-3120}, and symbolically by F(3 1 2 0). Yet, both
 passages sound completely different.
 
-The study of contour is important because contours can help to give
-coherence to a musical piece, like motives and pitch sets. They are
-structural devices that can be combined through operations like
-inversion and retrogradation, and can be approached by analytical or
-compositional points of view.
-
 Contour theories
 \cite{friedmann85:methodology,morris87:composition,marvin88:generalized,beard03:contour}
 have been developed to organize the current knowledge about contour in
@@ -88,46 +82,17 @@ provide arrays, matrices and many operations to help the comparison of
 contours, like inversion, translation, comparison matrix, and contour
 interval array.
 
-A computer program to process contours can assist composers and
-analysts in tasks like the calculation of operations---avoiding human
-error and wasting time---, automated graphical plotting, and
-conversion from music score to contours and vice-versa. For these
-reasons we are developing \goiaba{}, a software to contour processing.
-
 \section{The contour processing program Goiaba}
 
-\goiaba{} is a program written in Common Lisp developed by the authors
-of this paper to process and plot contours. It has many
-contour-related operations, like inversion, retrogradation, rotation,
-contour reduction \cite{adams76:melodic}, contour class, contour
-adjacency series, contour adjacency series vector, contour interval,
-contour interval array, contour class vector I and II
-\cite{friedmann85:methodology}, and comparison matrix
+\goiaba{} is a program written in Common Lisp developed to process and
+plot contours. It has many contour-related operations, like inversion,
+retrogradation, rotation, contour reduction \cite{adams76:melodic},
+contour class, contour adjacency series, contour adjacency series
+vector, contour interval, contour interval array, contour class vector
+I and II \cite{friedmann85:methodology}, and comparison matrix
 \cite{morris93:directions}. Currently, \goiaba{} accepts and shows
 contours in a numeric format, but it can also plot contours in a pdf
 file.
-
-\goiaba{} has two representations for contours; simple contours
-represents only the values of the contour elements, and contours with
-durations are basically ordered collections of cartesian points. For
-instance, the contour in figure~\ref{fig:c-3120} would be represented
-as a simple contour as \code{\#s(3 1 2 0)} and as a contour with
-duration as \code{\#d(\#p(0 3) \#p(1 1) \#p(2 2) \#p(3 0))}. The forms
-\code{\#s(\ldots)} and \code{\#d(\ldots)} indicate a simple contour
-and a contour with duration, respectively. The notation \code{\#p(x
-  y)} indicates a point with two values. So, from the example we can
-see that \goiaba{} really represents a contour with duration as a
-collection of points. The symbols \#s, \#d, and \#p are user-defined
-lisp reader macros that expand into code to instantiate objects of
-types simple-contour, contour-with-duration, and point, respectively.
-For instance, \code{\#p(0 1)} is expanded to \code{(make-instance
-  'point :x 0 :y 1)}, which is the usual way of instantiating objects
-in common lisp. Finally, \goiaba{} has a few constructor functions
-besides the reader macros to help the creation of contour objects. The
-functions, \texttt{make-point-list},
-\texttt{make-sim\-ple-contour\-list}, and
-\texttt{make-contour-with-du\-ra\-tion-list}, map a list to the
-correspondent object.
 
 \goiaba{} uses the Cl-pdf library
 to plot contours, allowing easy visualization of contour operations.
@@ -146,7 +111,6 @@ simple-contour object. The advantage of this approach is that we can
 add more types of contour if necessary and write the appropriate
 generic functions that will specialize on those types, without
 disrupting the existing code.
-
 
 \end{multicols}
 
@@ -227,7 +191,6 @@ disrupting the existing code.
   \label{fig:output-fugato}
 \end{figure}
 
-
 \end{multicols}
 \end{center}
 
@@ -241,33 +204,22 @@ combinations in musical composition are scarce, despite the possible
 coherence that contours can provide. For this reason we are
 researching the usage of contour in composition and its advantages.
 The first author of this paper, during his master's
-\cite{sampaio08:em}, composed a woodwind quintet,
-% \textit{Em Torno da Romã}\footnote{Around the Pomegranate}
-based on contour theories operations. We will use this piece as a case
-study for the use of contour theory in composition, and how \goiaba{}
-was useful in the compositional process.
-
-% \textit{Em torno da Romã}
-This piece
-was composed entirely using \goiaba{} to simplify the calculation of
-contour operations and plotting. The piece is based on the contour P(5
-3 4 1 2 0) and on combinations of contour operations associated to
-parameters such as pitch, tempo, density and texture. In figure
-\ref{fig:c-534120} we can see the original contour P and its subsets
-and operations; retrogradation, inversion, rotation, and
+\cite{sampaio08:em}, composed a woodwind quintet, based on contour
+theories operations. 
+This piece was composed entirely using \goiaba{} to simplify the
+calculation of contour operations and plotting. The piece is based on
+the contour P(5 3 4 1 2 0) and on combinations of contour operations
+associated to parameters such as pitch, tempo, density and texture. In
+figure \ref{fig:c-534120} we can see the original contour P and its
+subsets and operations; retrogradation, inversion, rotation, and
 interpolation.
 
-\goiaba{} was essential to compose a \eng{fugato} session in the
-quintet because each part of the subject and countersubject were based
-on different combinations of operations of rotation and
-retrogradation. The subject is formed by the concatenation of P and
-its rotation by a factor of 3, as seen in figure
-\ref{fig:sujeito-fugato}. Figure~\ref{fig:output-sujeito-fugato} shows
-\goiaba{}'s graphical output for both contours. The countersubject is
-formed by a sequence of three rotations (by the factor of 5, 4, and 3)
-of the retrograde of P (fig. \ref{fig:contra-sujeito-fugato}). We can
-see the graphical output of these contours in figure
-\ref{fig:output-contra-sujeito-fugato}.
+\goiaba{} was used to compose a \eng{fugato} session in the quintet
+because each part of the subject (fig.) \ref{fig:sujeito-fugato}) and
+countersubject (fig.~\ref{fig:contra-sujeito-fugato}) were based on
+different combinations of operations of rotation and retrogradation
+(fig.~\ref{fig:output-sujeito-fugato} and
+\ref{fig:output-contra-sujeito-fugato}).
 
 \section{Conclusion and future work}
 
