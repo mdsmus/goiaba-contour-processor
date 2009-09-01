@@ -13,3 +13,8 @@ lily/*.pdf
 /sbc2009.pdf
 /sbcm2009.pdf
 poster/goiaba-sbcm-2009.pdf
+slides/audio
+slides/slides-goiaba-sbcm2009.pdf
+slides/*.nav
+slides/*.snm
+slides/*.toc*
