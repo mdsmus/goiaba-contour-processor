@@ -43,6 +43,7 @@
     \centering
     \includegraphics[scale=1.4]{c-3120-simples}
   \end{figure}
+
 }
 
 \frame{
@@ -54,28 +55,51 @@
   \end{itemize}
 }
 
-\frame{
-  \frametitle{Operações}
+\begin{frame}[fragile]
+  \frametitle{Entrada/saída no Goiaba}
   \begin{itemize}
-  \item implementadas no \goiaba{} (rodar no programa)
+  \item Entrada: representação simbólica de contornos.  
+
+    Ex.: \verb!#s(3 1 2 0)!
+  \item Saída simbólica:
+
+    \verb!(retrogradar #s(3 1 2 0))! $\longrightarrow$
+    \verb!#s(0 2 1 3)!
+  \item Saída gráfica:
+    \verb!(simple-plot #s(0 2 1 3) "(0 2 1 3)" :blue)!
+    \includegraphics[scale=.3]{output-0213}
   \end{itemize}
-}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Operações e plotagem no Goiaba}
+\begin{verbatim}
+(let ((Z #s(0 5 3 4 1 3)))
+  (simple-plot
+    Z "original Z" :black
+    (retrogradar Z) "retrograde" :green
+    (inverter Z) "inversion" :red
+    (rotacionar Z 1) "rotation" :blue))
+\end{verbatim}
+\includegraphics[scale=.3]{output-varios-graficos}
+\end{frame}
 
 \section{Composição}
 
-\frame{
-  \frametitle{Rotação com retrogradação}
-  \begin{figure}
-    \centering
+\begin{frame}[fragile]
+  \frametitle{Goiaba como ferramenta de auxílio na composição}
     \includegraphics[scale=2.5]{sujeito-fugato}
 
+    \includegraphics[scale=.3]{output-subject-color}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Goiaba como ferramenta de auxílio na composição}
     \includegraphics[scale=2.5]{contra-sujeito-fugato}
-  \end{figure}
 
-  \href{run:audio/fugato.ogg}{\tocar}
-  \tiny (mostrar operações no \goiaba{})
-}
-
+    \includegraphics[scale=.3]{output-countersubject-color}
+\end{frame}
 
 \section{Conclusões}
 
